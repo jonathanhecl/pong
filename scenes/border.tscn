@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://b73ycwi081tai"]
+
+[ext_resource type="Script" path="res://scenes/border.gd" id="1_sb3q4"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_eu7sh"]
+b = Vector2(0, 640)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_1q7q2"]
+b = Vector2(1152, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_xm3gd"]
+a = Vector2(1152, 640)
+b = Vector2(1152, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_2pint"]
+a = Vector2(1152, 640)
+b = Vector2(0, 640)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c1k5g"]
+size = Vector2(16, 650)
+
+[node name="Border" type="StaticBody2D"]
+script = ExtResource("1_sb3q4")
+
+[node name="Left" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_eu7sh")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_1q7q2")
+
+[node name="Right" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_xm3gd")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_2pint")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 640.0
+border_color = Color(0, 1, 0, 1)
+border_width = 10.0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(8, 315)
+shape = SubResource("RectangleShape2D_c1k5g")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1139, 315)
+shape = SubResource("RectangleShape2D_c1k5g")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

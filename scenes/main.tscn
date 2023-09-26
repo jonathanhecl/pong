@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkf2k6fon7n3c"]
+
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_3apvy"]
+[ext_resource type="PackedScene" uid="uid://b73ycwi081tai" path="res://scenes/border.tscn" id="1_gwuco"]
+[ext_resource type="PackedScene" uid="uid://dgwomtt5d3rty" path="res://scenes/ball.tscn" id="2_g7vc0"]
+[ext_resource type="PackedScene" uid="uid://iluut323o2gr" path="res://scenes/paddles.tscn" id="3_e4tfg"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_3apvy")
+
+[node name="Border" parent="." instance=ExtResource("1_gwuco")]
+
+[node name="Ball" parent="." instance=ExtResource("2_g7vc0")]
+position = Vector2(560, 300)
+
+[node name="Paddles" parent="." instance=ExtResource("3_e4tfg")]
+
+[node name="Fails" type="Label" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 13.0
+offset_top = 64.0
+offset_right = 1136.0
+offset_bottom = 102.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Fails: 0"
+horizontal_alignment = 1
+
+[node name="Record" type="Label" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 13.0
+offset_top = 40.0
+offset_right = 1136.0
+offset_bottom = 78.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Record Time"
+horizontal_alignment = 1
+
+[node name="Time" type="Label" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 13.0
+offset_top = 16.0
+offset_right = 1136.0
+offset_bottom = 42.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "0.00 sec."
+horizontal_alignment = 1
